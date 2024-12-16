@@ -16,14 +16,15 @@ spec:
         app: todo-app
     spec:
       containers:
-      - name: todo-nextjs
-        image: quay.io/rpailer/todo-app:latest
-        ports:
-        - containerPort: 3000
-          name: todo
-        env:
-          - name: SERVER_URL
-            valueFrom:
-              configMapKeyRef:
-                name: todo-config
-                key: SERVER_URL
+        - name: todo-nextjs
+          image: albiert/todo-app:latest
+          ports:
+            - containerPort: 3000
+              name: todo
+          env:
+            - name: SERVER_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: todo-config
+                  key: SERVER_URL # the value of the variable comes from 1.2
+
